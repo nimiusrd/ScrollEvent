@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scroll Event</title>
+    <style>
+        #box1 {
+            background: red;
+            height: 70vh;
+            overflow: scroll;
+        }
+        #box1 > .item {
+            height: 20vh;
+            width: 130vw;
+            border: 3px solid black;
+        }
+        #box2 {
+            background: yellow;
+            height: 50vh;
+        }
+    </style>
+</head>
+<body>
+    <div id='box1'>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <div id='box2'>
+        <p>window:<span id="window-result"></span></p>
+        <p>box1:<span id="box1-result"></span></p>
+    </div>
+    <script>
+        window.addEventListener('scroll', event => {
+            document.getElementById('window-result').textContent = `(${window.scrollX}, ${window.scrollY})`
+        })
+        document.getElementById('box1').addEventListener('scroll', event => {
+            document.getElementById('box1-result').textContent = `(${event.target.scrollLeft}, ${event.target.scrollTop}) ; (${event.target.scrollLeft / (event.target.scrollWidth - event.target.clientWidth) * 100}%, ${event.target.scrollTop / (event.target.scrollHeight - event.target.clientHeight) * 100}%)`
+        })
+    </script>
+</body>
+</html>
