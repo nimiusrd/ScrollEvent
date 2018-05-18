@@ -28,5 +28,6 @@ elem.addEventListener('scroll', event => {
     const dy = event.target.scrollTop / (event.target.scrollHeight - event.target.clientHeight)
     console.log('dx:', dx)
     console.log('dy:', dy)
+})
 ```
 
