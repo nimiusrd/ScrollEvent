@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scroll Event</title>
+    <style>
+        #box1 {
+            background: red;
+            font-size: 2rem;
+            height: 70vh;
+            overflow: scroll;
+        }
+        #box1 > .item {
+            height: 20vh;
+            border: 3px solid black;
+        }
+        #box2 {
+            height: 30vh;
+        }
+        p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <div class="item" data-result="cell1-result">cell1</div>
+        <div class="item" data-result="cell2-result">cell2</div>
+        <div class="item" data-result="cell3-result">cell3</div>
+        <div class="item" data-result="cell4-result">cell4</div>
+        <div class="item" data-result="cell5-result">cell5</div>
+        <div class="item" data-result="cell6-result">cell6</div>
+        <div class="item" data-result="cell7-result">cell7</div>
+    </div>
+    <div id="box2">
+        <p>cell1:<span id="cell1-result"></span></p>
+        <p>cell2:<span id="cell2-result"></span></p>
+        <p>cell3:<span id="cell3-result"></span></p>
+        <p>cell4:<span id="cell4-result"></span></p>
+        <p>cell5:<span id="cell5-result"></span></p>
+        <p>cell6:<span id="cell6-result"></span></p>
+        <p>cell7:<span id="cell7-result"></span></p>
+    </div>
+    <script>
+        document.getElementById('box1').addEventListener('scroll', event => {
+            document.querySelectorAll('.item').forEach(elem => {
+                const isVisible = event.target.scrollTop < elem.offsetTop + elem.offsetHeight && event.target.scrollTop + event.target.clientHeight > elem.offsetTop
+                document.getElementById(elem.dataset.result).textContent = isVisible ? 'visible' : 'invisible'
+            })
+        })
+    </script>
+</body>
+</html>
