@@ -1,5 +1,8 @@
 # ScrollEvent
 
+- https://nimiusrd.github.io/ScrollEvent/
+- https://nimiusrd.github.io/ScrollEvent/visibilityCheck
+
 ## Windowのscrollイベントを捕捉し，座標を取得
 
 ```js
