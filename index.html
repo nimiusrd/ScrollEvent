@@ -8,6 +8,7 @@
     <style>
         #box1 {
             background: red;
+            font-size: 3rem;
             height: 70vh;
             overflow: scroll;
         }
@@ -24,25 +25,30 @@
 </head>
 <body>
     <div id='box1'>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
+        <div class="item">cell1</div>
+        <div class="item">cell2</div>
+        <div class="item">cell3</div>
+        <div class="item">cell4</div>
+        <div class="item">cell5</div>
+        <div class="item">cell6</div>
+        <div class="item">cell7</div>
     </div>
     <div id='box2'>
         <p>window:<span id="window-result"></span></p>
         <p>box1:<span id="box1-result"></span></p>
     </div>
     <script>
+        let count = 0
         window.addEventListener('scroll', event => {
+            console.log(event)
             document.getElementById('window-result').textContent = `(${window.scrollX}, ${window.scrollY})`
         })
         document.getElementById('box1').addEventListener('scroll', event => {
+            count += 1
+            console.log(count, event)
             document.getElementById('box1-result').textContent = `(${event.target.scrollLeft}, ${event.target.scrollTop}) ; (${event.target.scrollLeft / (event.target.scrollWidth - event.target.clientWidth) * 100}%, ${event.target.scrollTop / (event.target.scrollHeight - event.target.clientHeight) * 100}%)`
         })
+        document.
     </script>
 </body>
 </html>
